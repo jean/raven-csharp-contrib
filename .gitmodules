@@ -1,0 +1,3 @@
+[submodule "raven-csharp"]
+	path = raven-csharp
+	url = git@github.com:getsentry/raven-csharp.git
