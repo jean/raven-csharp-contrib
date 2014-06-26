@@ -1,5 +1,6 @@
 ﻿namespace SharpRaven
 
+[<AutoOpen>]
 module RavenWorkflow =
     let delay f (client : RavenClient) =
         try

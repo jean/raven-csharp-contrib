@@ -1,5 +1,6 @@
 ﻿namespace SharpRaven
 
+[<AutoOpen>]
 module RavenWorkflow =
     [<Sealed>]
     type RavenBuilder = 

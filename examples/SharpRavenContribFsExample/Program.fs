@@ -1,7 +1,6 @@
 ﻿open System
 
 open SharpRaven
-open SharpRaven.RavenWorkflow
 
 let client = new RavenClient("YOUR_DSN_HERE")
 
