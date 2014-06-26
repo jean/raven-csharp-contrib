@@ -37,5 +37,6 @@ This project uses `git submodules` to bring in the [raven-csharp](https://github
 The preferred way to build the solution is with the provided build script using [Fake](https://github.com/fsharp/FAKE), simply double click `**build.cmd**` to execute.
 
 To build manually:
+
 1. build the `raven-csharp/src/SharpRaven.sln` solution
 2. build the `SharpRavenContrib.sln` solution file at the root folder
