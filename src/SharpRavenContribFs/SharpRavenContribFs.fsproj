@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="RavenWorkflow.fsi" />
     <Compile Include="RavenWorkflow.fs" />
+    <Compile Include="LogTimeWorkflow.fsi" />
+    <Compile Include="LogTimeWorkflow.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\raven-csharp\src\app\SharpRaven\SharpRaven.csproj">
