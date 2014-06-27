@@ -27,7 +27,13 @@ See [**Example**](examples/SharpRavenContribFsExample/Program.fs).
 
 ## Nuget ##
 
-The C# and F# extensions are provided through 2 separate Nuget packages, and for now the `SharpRaven.dll` (from the [raven-csharp](https://github.com/getsentry/raven-csharp) repository) is included as part of both packages because its Nuget package doesn't include the dll which we depend on.
+The C# and F# extensions are provided through 2 separate Nuget packages, and for now the `SharpRaven.dll` (from the [raven-csharp](https://github.com/getsentry/raven-csharp) repository) is included as part of both packages because its Nuget package doesn't include the `SharpRaven.dll` which we depend on.
+
+To get the C# custom attributes:
+[![Nuget package](https://raw.githubusercontent.com/theburningmonk/raven-csharp-contrib/develop/nuget/raven-csharp-contrib%20logo.png)](https://www.nuget.org/packages/raven-csharp-contrib/)
+
+To get the F# workflows:
+[![Nuget package](https://raw.githubusercontent.com/theburningmonk/raven-csharp-contrib/develop/nuget/raven-csharp-contribfs%20logo.png)](https://www.nuget.org/packages/raven-csharp-contribfs/)
 
 
 ## How to Build ##
