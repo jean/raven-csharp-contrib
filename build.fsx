@@ -68,6 +68,13 @@ Target "AssemblyInfo" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Clean build results & restore NuGet packages
 
+Target "RestoreDependencyPackages" (fun _ ->
+    let setParam (pkgParams : RestorePackageParams) = 
+        { pkgParams with OutputPath = "raven-csharp/src/packages" }
+
+    !!"raven-csharp/src/app/SharpRaven/packages.config" 
+    |> Seq.iter (RestorePackage setParam))
+
 Target "RestorePackages" RestorePackages
 
 Target "Clean" (fun _ ->
@@ -179,6 +186,7 @@ Target "Release" DoNothing
 Target "All" DoNothing
 
 "Clean"
+  ==> "RestoreDependencyPackages"
   ==> "RestorePackages"
   ==> "AssemblyInfo"
   ==> "Build"
