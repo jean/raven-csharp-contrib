@@ -8,15 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{09F1D6
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRaven", "raven-csharp\src\app\SharpRaven\SharpRaven.csproj", "{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SharpRavenContribFs", "src\SharpRavenContribFs\SharpRavenContribFs.fsproj", "{79FB5737-5EEF-4A27-9FF8-7F28F9E5B493}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRavenContrib", "src\SharpRavenContrib\SharpRavenContrib.csproj", "{93535919-26B1-4D67-AB8D-B4769E0D2B2C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{1CB6FF5F-6426-4D1F-9CCB-8ED0BA83B809}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{522866A6-08B3-4F4C-8908-407742525811}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRavenContribExample", "examples\SharpRavenContribExample\SharpRavenContribExample.csproj", "{DB7E83DB-BF29-4727-BBA5-14CC2D55085E}"
 EndProject
@@ -38,10 +34,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79FB5737-5EEF-4A27-9FF8-7F28F9E5B493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79FB5737-5EEF-4A27-9FF8-7F28F9E5B493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79FB5737-5EEF-4A27-9FF8-7F28F9E5B493}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,7 +55,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1} = {522866A6-08B3-4F4C-8908-407742525811}
 		{DB7E83DB-BF29-4727-BBA5-14CC2D55085E} = {1CB6FF5F-6426-4D1F-9CCB-8ED0BA83B809}
 		{33520AEE-D49B-4BE2-A80A-A3A54468E931} = {1CB6FF5F-6426-4D1F-9CCB-8ED0BA83B809}
 	EndGlobalSection
