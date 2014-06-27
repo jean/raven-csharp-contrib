@@ -68,13 +68,6 @@ Target "AssemblyInfo" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Clean build results & restore NuGet packages
 
-Target "RestoreDependencyPackages" (fun _ ->
-    let setParam (pkgParams : RestorePackageParams) = 
-        { pkgParams with OutputPath = "raven-csharp/src/packages" }
-
-    !!"raven-csharp/src/app/SharpRaven/packages.config" 
-    |> Seq.iter (RestorePackage setParam))
-
 Target "RestorePackages" RestorePackages
 
 Target "Clean" (fun _ ->
@@ -122,8 +115,8 @@ Target "NuGet" (fun _ ->
             Publish = hasBuildParam "nugetkey"
             Dependencies = 
                 [ 
-                    "PostSharp",  GetPackageVersion "packages" "PostSharp" 
-                    "raven-csharp",  GetPackageVersion "packages" "raven-csharp" 
+                    "PostSharp",        GetPackageVersion "packages" "PostSharp" 
+                    "SharpRaven",       GetPackageVersion "packages" "SharpRaven" 
                     "Newtonsoft.Json",  GetPackageVersion "packages" "Newtonsoft.Json" 
                 ] })
         ("nuget/Raven-Csharp-Contrib.nuspec")
@@ -149,7 +142,7 @@ Target "NuGetFs" (fun _ ->
             Publish = hasBuildParam "nugetkey"
             Dependencies = 
                 [ 
-                    "raven-csharp",  GetPackageVersion "packages" "raven-csharp" 
+                    "SharpRaven",       GetPackageVersion "packages" "SharpRaven" 
                     "Newtonsoft.Json",  GetPackageVersion "packages" "Newtonsoft.Json" 
                 ] })
         ("nuget/Raven-Csharp-ContribFs.nuspec")
@@ -186,7 +179,6 @@ Target "Release" DoNothing
 Target "All" DoNothing
 
 "Clean"
-  ==> "RestoreDependencyPackages"
   ==> "RestorePackages"
   ==> "AssemblyInfo"
   ==> "Build"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>raven-csharp-contribfs</id>
+    <id>SharpRaven-Contribfs</id>
     <version>@build.number@</version>
     <authors>@authors@</authors>
     <owners>@authors@</owners>
@@ -17,9 +17,6 @@
     @dependencies@
   </metadata>
   <files>
-    <file src="..\build\SharpRaven.dll" target="lib/net40" />
-    <file src="..\build\SharpRaven.pdb" target="lib/net40" />
-    <file src="..\build\SharpRaven.xml" target="lib/net40" />
     <file src="..\build\SharpRavenContribFs.dll" target="lib/net40" />
     <file src="..\build\SharpRavenContribFs.pdb" target="lib/net40" />
     <file src="..\build\SharpRavenContribFs.xml" target="lib/net40" />
