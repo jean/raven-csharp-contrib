@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>@project@</id>
+    <id>raven-csharp-contrib</id>
     <version>@build.number@</version>
     <authors>@authors@</authors>
     <owners>@authors@</owners>
-    <licenseUrl>https://github.com/theburningmonk/log4net.kinesis/blob/develop/LICENSE.txt</licenseUrl>
-    <projectUrl>https://github.com/theburningmonk/log4net.kinesis/</projectUrl>
-    <iconUrl>https://raw.github.com/theburningmonk/log4net.kinesis/develop/nuget/logo.png</iconUrl>
+    <licenseUrl>https://github.com/theburningmonk/raven-csharp-contrib/blob/develop/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/theburningmonk/raven-csharp-contrib/</projectUrl>
+    <iconUrl>https://raw.github.com/theburningmonk/raven-csharp-contrib/develop/nuget/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>@summary@</summary>
-    <description>This library provides a log4net custom appender for logging into an Amazon Kinesis stream.</description>
+    <description>This library provides a set of custom attributes for C# to make it easier for you to capture and log exceptions and execution times to Sentry.</description>
     <releaseNotes>@releaseNotes@</releaseNotes>
-    <copyright>Copyright 2013</copyright>
+    <copyright>Copyright 2014 Yan Cui</copyright>
     <tags>@tags@</tags>
     @dependencies@
   </metadata>
   <files>
-    <file src="..\build\log4net.kinesis.dll" target="lib/net45" />
-    <file src="..\build\log4net.kinesis.pdb" target="lib/net45" />
-    <file src="..\build\log4net.kinesis.xml" target="lib/net45" />
+    <file src="..\build\SharpRaven.dll" target="lib/net40" />
+    <file src="..\build\SharpRaven.pdb" target="lib/net40" />
+    <file src="..\build\SharpRaven.xml" target="lib/net40" />
+    <file src="..\build\SharpRavenContrib.dll" target="lib/net40" />
+    <file src="..\build\SharpRavenContrib.pdb" target="lib/net40" />
+    <file src="..\build\SharpRavenContrib.xml" target="lib/net40" />
   </files>
 </package>

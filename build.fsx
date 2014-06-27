@@ -25,11 +25,11 @@ let tempDir  = "temp/"
 
 // The name of the project 
 // (used by attributes in AssemblyInfo, name of a NuGet package and directory in 'src')
-let project = "log4net.Kinesis"
+let project = "raven-csharp-contrib"
 
 // Short summary of the project
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
-let summary = "log4net appender for logging into an Amazon Kinesis stream"
+let summary = "Extensions to C# client for Sentry"
 
 // Longer description of the project
 // (used as a description for NuGet package; line breaks are automatically cleaned up)
@@ -38,19 +38,13 @@ let description = """
 // List of author names (for NuGet package)
 let authors = [ "Yan Cui" ]
 // Tags for your project (for NuGet package)
-let tags = "f# fsharp aws amazon kinesis bigdata log4net logging"
-
-// File system information 
-// (<solutionFile>.sln is built during the building process)
-let projectFile  = "log4net.kinesis.fsproj"
-// Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = ["tests/*/bin/*/log4net.kinesis*Tests*.dll"]
+let tags = "sentry raven logging f# fsharp c# csharp"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted 
 let gitHome = "https://github.com/theburningmonk"
 // The name of the project on GitHub
-let gitName = "log4net.kinesis"
+let gitName = "raven-csharp-contrib"
 
 // --------------------------------------------------------------------------------------
 // END TODO: The rest of the file includes standard build steps 
@@ -62,7 +56,7 @@ let release = parseReleaseNotes (IO.File.ReadAllLines "RELEASE_NOTES.md")
 
 // Generate assembly info files with the right version & up-to-date information
 Target "AssemblyInfo" (fun _ ->
-  let fileName = "src/" + project + "/AssemblyInfo.fs"
+  let fileName = "src/SharpRavenContribFs/AssemblyInfo.fs"
   CreateFSharpAssemblyInfo fileName
       [ Attribute.Title         project
         Attribute.Product       project
@@ -93,29 +87,9 @@ let files includes =
     Excludes = [] } 
 
 Target "Build" (fun _ ->
-    files [ "src/log4net.kinesis/" + projectFile ]
+    files [ "SharpRavenContrib.sln" ]
     |> MSBuildRelease buildDir "Rebuild"
     |> ignore
-)
-
-// --------------------------------------------------------------------------------------
-// Run the unit tests using test runner & kill test runner when complete
-
-Target "RunTests" (fun _ ->
-    ActivateFinalTarget "CloseTestRunner"
-
-    { BaseDirectory = __SOURCE_DIRECTORY__
-      Includes = testAssemblies
-      Excludes = [] } 
-    |> NUnit (fun p ->
-        { p with
-            DisableShadowCopy = true
-            TimeOut = TimeSpan.FromMinutes 20.
-            OutputFile = "TestResults.xml" })
-)
-
-FinalTarget "CloseTestRunner" (fun _ ->  
-    ProcessHelper.killProcess "nunit-agent.exe"
 )
 
 // --------------------------------------------------------------------------------------
@@ -139,10 +113,30 @@ Target "NuGet" (fun _ ->
             OutputPath = "nuget"
             AccessKey = getBuildParamOrDefault "nugetkey" ""
             Publish = hasBuildParam "nugetkey"
-            Dependencies = 
-                [ "AWSSDK",  GetPackageVersion "packages" "AWSSDK"
-                  "log4net", GetPackageVersion "packages" "log4net" ] })
-        ("nuget/" + project + ".nuspec")
+            Dependencies = [ "PostSharp",  GetPackageVersion "packages" "PostSharp" ] })
+        ("nuget/Raven-Csharp-Contrib.nuspec")
+)
+
+Target "NuGetFs" (fun _ ->
+    // Format the description to fit on a single line (remove \r\n and double-spaces)
+    let description = description.Replace("\r", "")
+                                 .Replace("\n", "")
+                                 .Replace("  ", " ")
+
+    NuGet (fun p -> 
+        { p with   
+            Authors = authors
+            Project = project
+            Summary = summary
+            Description = description
+            Version = release.NugetVersion
+            ReleaseNotes = String.Join(Environment.NewLine, release.Notes)
+            Tags = tags
+            OutputPath = "nuget"
+            AccessKey = getBuildParamOrDefault "nugetkey" ""
+            Publish = hasBuildParam "nugetkey"
+            Dependencies = [  ] })
+        ("nuget/Raven-Csharp-ContribFs.nuspec")
 )
 
 // --------------------------------------------------------------------------------------
@@ -179,14 +173,11 @@ Target "All" DoNothing
   ==> "RestorePackages"
   ==> "AssemblyInfo"
   ==> "Build"
-//  ==> "RunTests"
   ==> "All"
 
 "All" 
-//  ==> "CleanDocs"
-//  ==> "GenerateDocs"
-//  ==> "ReleaseDocs"
   ==> "NuGet"
+  ==> "NuGetFs"
   ==> "Release"
 
 RunTargetOrDefault "All"

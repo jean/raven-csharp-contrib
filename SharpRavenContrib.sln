@@ -22,6 +22,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRavenContribExample", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SharpRavenContribFsExample", "examples\SharpRavenContribFsExample\SharpRavenContribFsExample.fsproj", "{33520AEE-D49B-4BE2-A80A-A3A54468E931}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{56A2A766-EDD9-4548-9782-405D045E72BC}"
+	ProjectSection(SolutionItems) = preProject
+		build.fsx = build.fsx
+		LICENSE.txt = LICENSE.txt
+		nuget\Raven-Csharp-Contrib.nuspec = nuget\Raven-Csharp-Contrib.nuspec
+		nuget\Raven-Csharp-ContribFs.nuspec = nuget\Raven-Csharp-ContribFs.nuspec
+		README.md = README.md
+		RELEASE_NOTES.md = RELEASE_NOTES.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,8 +63,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1} = {522866A6-08B3-4F4C-8908-407742525811}
 		{DB7E83DB-BF29-4727-BBA5-14CC2D55085E} = {1CB6FF5F-6426-4D1F-9CCB-8ED0BA83B809}
 		{33520AEE-D49B-4BE2-A80A-A3A54468E931} = {1CB6FF5F-6426-4D1F-9CCB-8ED0BA83B809}
-		{CC80A2E1-AE39-44DE-8DA3-4EEF42F90FB1} = {522866A6-08B3-4F4C-8908-407742525811}
 	EndGlobalSection
 EndGlobal
