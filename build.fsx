@@ -115,8 +115,8 @@ Target "NuGet" (fun _ ->
             Publish = hasBuildParam "nugetkey"
             Dependencies = 
                 [ 
-                    "PostSharp",  GetPackageVersion "packages" "PostSharp" 
-                    "raven-csharp",  GetPackageVersion "packages" "raven-csharp" 
+                    "PostSharp",        GetPackageVersion "packages" "PostSharp" 
+                    "SharpRaven",       GetPackageVersion "packages" "SharpRaven" 
                     "Newtonsoft.Json",  GetPackageVersion "packages" "Newtonsoft.Json" 
                 ] })
         ("nuget/Raven-Csharp-Contrib.nuspec")
@@ -142,7 +142,7 @@ Target "NuGetFs" (fun _ ->
             Publish = hasBuildParam "nugetkey"
             Dependencies = 
                 [ 
-                    "raven-csharp",  GetPackageVersion "packages" "raven-csharp" 
+                    "SharpRaven",       GetPackageVersion "packages" "SharpRaven" 
                     "Newtonsoft.Json",  GetPackageVersion "packages" "Newtonsoft.Json" 
                 ] })
         ("nuget/Raven-Csharp-ContribFs.nuspec")

@@ -35,9 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PostSharp, Version=3.1.45.9, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\PostSharp.3.1.45\lib\net20\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpRaven, Version=1.3.1.53, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SharpRaven.1.3.1.53\lib\SharpRaven.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,10 +64,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\raven-csharp\src\app\SharpRaven\SharpRaven.csproj">
-      <Project>{cc80a2e1-ae39-44de-8da3-4eef42f90fb1}</Project>
-      <Name>SharpRaven</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\SharpRavenContrib\SharpRavenContrib.csproj">
       <Project>{93535919-26b1-4d67-ab8d-b4769e0d2b2c}</Project>
       <Name>SharpRavenContrib</Name>

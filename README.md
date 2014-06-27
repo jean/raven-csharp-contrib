@@ -27,16 +27,17 @@ See [**Example**](examples/SharpRavenContribFsExample/Program.fs).
 
 ## Nuget ##
 
-The C# and F# extensions are provided through 2 separate Nuget packages, and for now the `SharpRaven.dll` (from the [raven-csharp](https://github.com/getsentry/raven-csharp) repository) is included as part of both packages because its Nuget package doesn't include the dll which we depend on.
+The C# and F# extensions are provided through 2 separate Nuget packages.
+
+To get the C# custom attributes:
+[![Nuget package](https://raw.githubusercontent.com/theburningmonk/raven-csharp-contrib/develop/nuget/SharpRaven-Contrib%20logo.png)](https://www.nuget.org/packages/SharpRaven-Contrib/)
+
+To get the F# workflows:
+[![Nuget package](https://raw.githubusercontent.com/theburningmonk/raven-csharp-contrib/develop/nuget/SharpRaven-Contribfs%20logo.png)](https://www.nuget.org/packages/SharpRaven-Contribfs/)
 
 
 ## How to Build ##
 
-This project uses `git submodules` to bring in the [raven-csharp](https://github.com/getsentry/raven-csharp) project as its Nuget package doesn't include the `RavenClient.dll` which we depend on, so for the time being make sure you fetch submodules after you cloned this repository (see this useful [cheat-sheet](http://blog.jacius.info/git-submodule-cheat-sheet/) on how).
-
 The preferred way to build the solution is with the provided build script using [Fake](https://github.com/fsharp/FAKE), simply double click `**build.cmd**` to execute.
 
-To build manually:
-
-1. build the `raven-csharp/src/SharpRaven.sln` solution
-2. build the `SharpRavenContrib.sln` solution file at the root folder
+To build manually, open the `SharpRavenContrib.sln` solution file at the root folder and build it in Visual Studio (don't forget to enable Nuget restore).
