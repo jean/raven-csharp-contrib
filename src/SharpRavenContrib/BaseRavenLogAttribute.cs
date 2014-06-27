@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Configuration;
+using System.Linq;
+using System.Reflection;
 
 using PostSharp.Aspects;
 using PostSharp.Extensibility;
@@ -15,16 +18,57 @@ namespace SharpRaven
         private static readonly ConcurrentDictionary<string, RavenClient> RavenClients =
             new ConcurrentDictionary<string, RavenClient>();
 
-        private readonly string _dsn;
+        private string _dsn;
+        [NonSerialized] private bool _isDisabled;
+        [NonSerialized] private RavenClient _client;
 
-        protected BaseRavenLogAttribute(string dsn)
+        protected BaseRavenLogAttribute(string dsn = null)
         {
             _dsn = dsn;
         }
 
-        public RavenClient GetClient()
+        protected bool IsDisabled
         {
-            return RavenClients.GetOrAdd(_dsn, dsn => new RavenClient(dsn));
+            get
+            {
+                return _isDisabled;
+            }
+        }
+
+        protected RavenClient Client
+        {
+            get
+            {
+                return _client;
+            }
+        }
+
+        /// <summary>
+        /// If DSN is not provided via constructor, then try to look it up via AppSettings at runtime
+        /// </summary>
+        public override void RuntimeInitialize(MethodBase method)
+        {
+            base.RuntimeInitialize(method);
+
+            if (_dsn == null)
+            {
+                var values = ConfigurationManager.AppSettings.GetValues("SentryDsn");
+                _dsn = values != null ? values.FirstOrDefault() : null;
+            }
+
+            if (_dsn == null)
+            {
+                _isDisabled = true;
+            }
+            else
+            {
+                _client = GetClient(_dsn);
+            }
+        }
+
+        private static RavenClient GetClient(string dsn)
+        {
+            return RavenClients.GetOrAdd(dsn, x => new RavenClient(x));
         }
     }
 }
