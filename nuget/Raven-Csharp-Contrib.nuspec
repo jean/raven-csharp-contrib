@@ -9,8 +9,8 @@
     <projectUrl>https://github.com/theburningmonk/raven-csharp-contrib/</projectUrl>
     <iconUrl>https://raw.github.com/theburningmonk/raven-csharp-contrib/develop/nuget/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>@summary@</summary>
-    <description>This library provides a set of custom attributes for C# to make it easier for you to capture and log exceptions and execution times to Sentry.</description>
+    <summary>C# custom attributes to capture and log exceptions and slow execution times to Sentry</summary>
+    <description>This library provides a set of custom attributes for C# to make it easier for you to capture and log exceptions and slow execution times to Sentry.</description>
     <releaseNotes>@releaseNotes@</releaseNotes>
     <copyright>Copyright 2014 Yan Cui</copyright>
     <tags>@tags@</tags>
