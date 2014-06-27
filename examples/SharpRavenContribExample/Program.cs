@@ -4,10 +4,10 @@ using System.Threading;
 using SharpRaven;
 
 // this attribute will log any exception in methods that have been enhanced
-[assembly: RavenLogException("YOUR_SDN_HERE")]
+[assembly: RavenLogException]
 
 // this attribute will log warning message for methods that takes longer than 1ms to execute
-[assembly: RavenLogExecutionTimeAttribute("YOUR_SDN_HERE", 1)]
+[assembly: RavenLogExecutionTimeAttribute(1)]
 
 namespace SharpRavenContribExample
 {
@@ -43,8 +43,8 @@ namespace SharpRavenContribExample
         /// <summary>
         /// You can exclude methods from the logging too
         /// </summary>
-        [RavenLogException("", AttributeExclude = true)]
-        [RavenLogExecutionTimeAttribute("", 1, AttributeExclude = true)]
+        [RavenLogException(AttributeExclude = true)]
+        [RavenLogExecutionTimeAttribute(1, AttributeExclude = true)]
         private static void NotLoggedToSentry()
         {
             throw new ArgumentException();

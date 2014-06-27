@@ -11,14 +11,17 @@ namespace SharpRaven
     [MulticastAttributeUsage(MulticastTargets.Method)]
     public class RavenLogExceptionAttribute : BaseRavenLogAttribute
     {
-        public RavenLogExceptionAttribute(string dsn) : base(dsn)
+        public RavenLogExceptionAttribute(string dsn = null) : base(dsn)
         {
         }
 
         public override void OnException(MethodExecutionArgs args)
         {
-            var client = GetClient();
-            client.CaptureException(args.Exception);
+            if (!IsDisabled)
+            {
+                Client.CaptureException(args.Exception);
+            }
+
             base.OnException(args);
         }
     }
